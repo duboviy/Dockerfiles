@@ -1,4 +1,9 @@
 <h1><img src="https://www.docker.com/sites/default/files/moby.svg" height=85 alt="logo" title="logo"> Dockerfiles</h1>
+
+by [Eugene Duboviy](https://duboviy.github.io/)
+
+[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/duboviy/Dockerfiles/) [![PRs & Issues Welcome](https://img.shields.io/badge/PRs%20&%20Issues-welcome-brightgreen.svg)](https://github.com/duboviy/Dockerfiles/pulls) [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/duboviy/Dockerfiles/)
+
 Dockerfiles I use. These are all automated builds (with Docker hub usage).
 
 ## Why I use Docker
