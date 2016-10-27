@@ -1,20 +1,32 @@
-# Setup mongodb 3.0 on Ubuntu 14.04 LTS (Trusty Tahr)
+# Setup mongodb on latest Ubuntu
 
-FROM ubuntu:14.04
+FROM ubuntu
 MAINTAINER Eugene Duboviy <eugene.dubovoy@gmail.com> | github.com/duboviy
 
-# install mongodb and start it
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-RUN echo 'deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse' | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-RUN apt-get update  \ 
-	&& apt-get install -y mongodb-org=3.0.0 \ 
-			 mongodb-org-server=3.0.0 \ 
-			 mongodb-org-shell=3.0.0 \ 
-			 mongodb-org-mongos=3.0.0 \
-			 mongodb-org-tools=3.0.0
+################## BEGIN INSTALLATION ######################
+# Install MongoDB Following the Instructions at MongoDB Docs
+# Ref: http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
 
+# Add the package verification key
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+
+# Add MongoDB to the repository sources list
+RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
+
+# Update the repository sources list once more and install MongoDB package (.deb)
+RUN apt-get update  \
+	&& apt-get install -y mongodb-10gen
+
+# Create the default data directory
 RUN mkdir -p /data/db
 
+##################### INSTALLATION END #####################
+
+# Expose the default port
 EXPOSE 27017
 
+# Default port to execute the entrypoint (MongoDB)
+CMD ["--port 27017"]
+
+# Set default container command
 ENTRYPOINT usr/bin/mongod
