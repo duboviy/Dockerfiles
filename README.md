@@ -1,4 +1,4 @@
-<h1><img src="https://www.docker.com/sites/default/files/moby.svg" height=85 alt="logo" title="logo"> Dockerfiles</h1>
+<h1><img src="https://www.docker.com/sites/default/files/Whale%20Logo332_5.png" height=85 alt="logo" title="logo"> Dockerfiles</h1>
 
 by [Eugene Duboviy](https://duboviy.github.io/)
 
